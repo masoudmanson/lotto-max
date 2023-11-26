@@ -31,13 +31,14 @@ const doneState = (props: NumberSlotProps) => {
 
 const showcaseState = () => {
     return `
-        box-shadow: inset 0 0 0 8px rgba(250, 135, 35, 1);
-        border-color: rgba(250, 135, 35, 1);
+        box-shadow: inset 0 0 0 8px rgba(230, 185, 10, 1);
+        border-color: rgba(230, 185, 10, 1);
         cursor: default;
+        color: rgba(230, 185, 40, 1);
 
         &:hover {
-            border-color:  rgba(250, 135, 35, 1);
-            box-shadow: inset 0 0 0 8px rgba(250, 135, 35, 1);
+            border-color:  rgba(230, 185, 10, 1);
+            box-shadow: inset 0 0 0 8px rgba(230, 185, 10, 1);
         }
     `;
 };

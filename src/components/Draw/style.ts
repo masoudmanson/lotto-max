@@ -6,6 +6,10 @@ export const StyledContainer = styled("div")`
     grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 8px;
     padding: 10px 0 50px;
+
+    @media screen and (max-width: 800px) {
+        padding: 15px 0 45px;
+    }
 `;
 
 export const StyledWrapper = styled("div")`
