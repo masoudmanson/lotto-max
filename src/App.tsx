@@ -1,17 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './App.css'
-import Draw from './components/Draw';
-import NumbersGrid from './components/NumbersGrid';
-import PickedGrid from './components/PickedGrid';
-import Result from './components/Result';
-import { RootState } from './store/store';
-import { Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { autoPick, draw, reset } from './store/selectionSlice';
+import Particles from "react-tsparticles"; 
+import { loadFull } from "tsparticles"; 
+import { Engine } from 'tsparticles-engine';
+import LottoMax from './components/LottoMax';
 
 function App() {
   const dispatch = useDispatch();
-  const winning = useSelector((state: RootState) => state.selection.winning);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -37,30 +34,65 @@ function App() {
     }
   }, [dispatch]);
 
+  const particlesInit = async (main: Engine) => {
+    await loadFull(main); 
+  }; 
+
   return (
     <>
-      <div id="header">
-        <Typography
-          component="h4"
-          variant="h4"
-          sx={{
-            paddingBottom: 4,
-            color: "SteelBlue",
-            fontWeight: 600
-          }}
-        >
-          Lotto Mim
-        </Typography>
-      </div>
-
-      <div id="lotto-max-wrapper">
-        <NumbersGrid count={50} />
-        <div>
-          <PickedGrid />
-          <Draw />
-          {winning.length ? <Result /> : null}
-        </div>
-      </div>
+    <Particles 
+        id="tsparticles" 
+        init={particlesInit} 
+        options={{ 
+          background: { 
+            color: "#0F52BA", 
+          }, 
+          fpsLimit: 60, 
+          particles: { 
+            shape: { 
+              type: "circle", 
+            }, 
+            size: { 
+              random: { 
+                enable: true, 
+                minimumValue: 0.5, 
+              }, 
+              value: 1.4, 
+            }, 
+            color: { 
+              value: "#fff", 
+            }, 
+            number: { 
+              density: { 
+                enable: true, 
+                area: 1080, 
+              }, 
+              limit: 0, 
+              value: 800, 
+            }, 
+            opacity: { 
+              animation: { 
+                enable: true, 
+                minimumValue: 0, 
+                speed: 3, 
+                sync: false, 
+              }, 
+              random: { 
+                enable: true, 
+                minimumValue: 0.1, 
+              }, 
+              value: 1, 
+            }, 
+            interactivity: { 
+              detectsOn: "canvas", 
+              events: { 
+                resize: true, 
+              }, 
+            }, 
+          }, 
+        }} 
+      /> 
+      <LottoMax />
     </>
   )
 }
