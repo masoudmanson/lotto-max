@@ -21,4 +21,5 @@ export const StyledWrapper = styled("div")`
 
 export const StyledButton = styled(Button)`
     border-radius: 40px;
+    margin: 10px;
 `;

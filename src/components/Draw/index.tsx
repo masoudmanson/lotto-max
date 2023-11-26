@@ -3,7 +3,7 @@ import NumberSlot from "../NumberSlot";
 import { StyledButton, StyledContainer, StyledWrapper } from "./style";
 import { RootState } from "../../store/store";
 import { Typography } from "@mui/material";
-import { draw } from "../../store/selectionSlice";
+import { draw, autoPick } from "../../store/selectionSlice";
 
 const Draw: React.FC = () => {
     const dispatch = useDispatch();
@@ -32,6 +32,16 @@ const Draw: React.FC = () => {
         </>
     ) : (
         <StyledWrapper>
+            { !selected.length ? <StyledButton
+                color="info"
+                disableElevation
+                disableRipple
+                onClick={handleAutoPick}
+                variant="outlined"
+            >
+                Auto Pick
+            </StyledButton> : null }
+            
             <StyledButton
                 color="info"
                 disableElevation
@@ -40,13 +50,17 @@ const Draw: React.FC = () => {
                 variant="contained"
                 disabled={selected.length < total}
             >
-                Draw Numbers
+                Draw
             </StyledButton>
         </StyledWrapper>
     );
 
     function handleDraw() {
         dispatch(draw());
+    }
+
+    function handleAutoPick() {
+        dispatch(autoPick());
     }
 };
 

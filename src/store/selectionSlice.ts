@@ -36,6 +36,15 @@ export const selectionSlice = createSlice({
         }
       }
     },
+    autoPick: (state) => {
+      while(state.selected.length < state.total) {
+        const randomNumber = Math.floor(Math.random() * 50);
+
+        if(!state.selected.includes(randomNumber)) {
+          state.selected.push(randomNumber);
+        }
+      }
+    },
     reset: (state) => {
       state.selected = [];
       state.winning = [];
@@ -44,6 +53,6 @@ export const selectionSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { select, deselect, draw, reset } = selectionSlice.actions;
+export const { autoPick, select, deselect, draw, reset } = selectionSlice.actions;
 
 export default selectionSlice.reducer;
