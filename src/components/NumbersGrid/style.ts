@@ -11,7 +11,8 @@ export const StyledContainer = styled("div")`
     border-right: solid 1px #eee;
 
     @media screen and (max-width: 800px) {
-        max-width: 232px;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(8, 1fr);
         padding-right: 0;
         padding-bottom: 30px;
         margin: 0 auto 30px;
