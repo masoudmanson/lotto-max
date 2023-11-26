@@ -21,7 +21,7 @@ function App() {
           fontWeight: 600
         }}
       >
-        Lotto Max Draft
+        Lotto Max
       </Typography>
       
       <div id="lotto-max-wrapper">
