@@ -28,6 +28,8 @@ export const selectionSlice = createSlice({
         state.selected = newSelected;
     },
     draw: (state) => {
+      if (state.selected.length !== state.total || state.winning.length) return;
+
       while(state.winning.length < state.total) {
         const randomNumber = Math.floor(Math.random() * 50) + 1;
 
@@ -37,6 +39,8 @@ export const selectionSlice = createSlice({
       }
     },
     autoPick: (state) => {
+      if(state.selected.length || state.winning.length) return;
+
       while(state.selected.length < state.total) {
         const randomNumber = Math.floor(Math.random() * 50) + 1;
         
@@ -47,6 +51,8 @@ export const selectionSlice = createSlice({
       }
     },
     reset: (state) => {
+      if (!state.winning.length) return;
+
       state.selected = [];
       state.winning = [];
     }

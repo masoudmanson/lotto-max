@@ -1,4 +1,4 @@
-import { Button, styled } from "@mui/material";
+import { Button, styled, chipClasses } from "@mui/material";
 
 export const StyledContainer = styled("div")`
     display: grid;
@@ -23,4 +23,9 @@ export const StyledWrapper = styled("div")`
 export const StyledButton = styled(Button)`
     border-radius: 40px;
     margin: 10px;
+    padding: 5px 8px 5px 15px;
+
+    & .${chipClasses.root} {
+        margin-left: 8px;
+    }
 `;

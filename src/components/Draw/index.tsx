@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NumberSlot from "../NumberSlot";
 import { StyledButton, StyledContainer, StyledWrapper } from "./style";
 import { RootState } from "../../store/store";
-import { Typography } from "@mui/material";
+import { Chip, Typography } from "@mui/material";
 import { draw, autoPick } from "../../store/selectionSlice";
 
 const Draw: React.FC = () => {
@@ -32,16 +32,16 @@ const Draw: React.FC = () => {
         </>
     ) : (
         <StyledWrapper>
-            { !selected.length ? <StyledButton
+            {!selected.length ? <StyledButton
                 color="info"
                 disableElevation
                 disableRipple
                 onClick={handleAutoPick}
                 variant="outlined"
             >
-                Auto Pick
-            </StyledButton> : null }
-            
+                Auto Pick <Chip label="A" size="small" />
+            </StyledButton> : null}
+
             <StyledButton
                 color="info"
                 disableElevation
@@ -50,7 +50,7 @@ const Draw: React.FC = () => {
                 variant="contained"
                 disabled={selected.length < total}
             >
-                Draw
+                Draw  <Chip disabled={selected.length < total} label="D" size="small" color={selected.length < total ? "default" : "primary"} variant={selected.length < total ? "outlined" : "filled"} />
             </StyledButton>
         </StyledWrapper>
     );

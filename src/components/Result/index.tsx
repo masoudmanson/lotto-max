@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import NumberSlot from "../NumberSlot";
 import { RootState } from "../../store/store";
-import { Typography } from "@mui/material";
+import { Chip, Typography } from "@mui/material";
 import { reset } from "../../store/selectionSlice";
 import { StyledButton, StyledContainer } from "../Draw/style";
 import { StyledWrapper } from "./style";
@@ -46,7 +46,7 @@ const Result: React.FC = () => {
                     onClick={handleReset}
                     variant="outlined"
                 >
-                    Reset
+                    Start again <Chip label="S" size="small" />
                 </StyledButton>
             </StyledWrapper>
         </>
