@@ -13,6 +13,10 @@ export const StyledWrapper = styled("div")`
     justify-content: center;
     align-items: center;
     height: 35vh;
+
+    @media screen and (max-width: 800px) {
+        height: 5vh;
+    }
 `;
 
 export const StyledButton = styled(Button)`

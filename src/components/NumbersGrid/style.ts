@@ -9,4 +9,13 @@ export const StyledContainer = styled("div")`
     padding-right: 30px;
     margin-right: 30px;
     border-right: solid 1px #eee;
+
+    @media screen and (max-width: 800px) {
+        max-width: 232px;
+        padding-right: 0;
+        padding-bottom: 30px;
+        margin: 0 auto 30px;
+        border-right: none;   
+        border-bottom: solid 1px #eee;
+    }
 `;
