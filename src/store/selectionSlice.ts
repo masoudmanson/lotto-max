@@ -29,7 +29,7 @@ export const selectionSlice = createSlice({
     },
     draw: (state) => {
       while(state.winning.length < state.total) {
-        const randomNumber = Math.floor(Math.random() * 50);
+        const randomNumber = Math.floor(Math.random() * 50) + 1;
 
         if(!state.winning.includes(randomNumber)) {
           state.winning.push(randomNumber);
@@ -38,7 +38,8 @@ export const selectionSlice = createSlice({
     },
     autoPick: (state) => {
       while(state.selected.length < state.total) {
-        const randomNumber = Math.floor(Math.random() * 50);
+        const randomNumber = Math.floor(Math.random() * 50) + 1;
+        
 
         if(!state.selected.includes(randomNumber)) {
           state.selected.push(randomNumber);
