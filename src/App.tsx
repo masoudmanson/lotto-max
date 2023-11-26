@@ -9,27 +9,29 @@ import { Typography } from '@mui/material';
 
 function App() {
   const winning = useSelector((state: RootState) => state.selection.winning);
-  
+
   return (
     <>
-      <Typography 
-        component="h4" 
-        variant="h4" 
-        sx={{
-          paddingBottom: 4, 
-          color: "SteelBlue", 
-          fontWeight: 600
-        }}
-      >
-        Lotto Max
-      </Typography>
-      
+      <div id="header">
+        <Typography
+          component="h4"
+          variant="h4"
+          sx={{
+            paddingBottom: 4,
+            color: "SteelBlue",
+            fontWeight: 600
+          }}
+        >
+          Lotto Max
+        </Typography>
+      </div>
+
       <div id="lotto-max-wrapper">
-        <NumbersGrid count={50}/>
+        <NumbersGrid count={50} />
         <div>
-          <PickedGrid/>
-          <Draw/>
-          {winning.length ? <Result/> : null}
+          <PickedGrid />
+          <Draw />
+          {winning.length ? <Result /> : null}
         </div>
       </div>
     </>

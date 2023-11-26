@@ -16,6 +16,7 @@ export const StyledWrapper = styled("div")`
 
     @media screen and (max-width: 800px) {
         height: 5vh;
+        margin: 0 auto 30px;
     }
 `;
 

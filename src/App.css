@@ -4,6 +4,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #0F52BA;
 }
 
 #root {
@@ -11,10 +12,39 @@ body {
   margin: 0 auto;
 }
 
+#header {
+  background-color: green;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+#header::after {
+  font-family: "Inter";
+  content: "M";
+  color: "white";
+  opacity: .1;
+  position: absolute;
+  right: -40px;
+  top: -120px;
+  font-size: 250px;
+  font-weight: 700;
+  transform: rotate(-45deg);
+}
+
+#header h4 {
+  color: white;
+  padding-bottom: 0;
+}
+
 #lotto-max-wrapper {
   display: flex;
   justify-content: center;
   align-items: start;
+  padding: 30px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
 @media screen and (max-width: 800px) {
