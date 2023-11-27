@@ -3,6 +3,7 @@ import NumberSlot from "../NumberSlot";
 import { RootState } from "../../store/store";
 import { Typography } from "@mui/material";
 import { StyledContainer } from "../Draw/style";
+import { StyledWrapper } from "./style";
 
 const PickedGrid: React.FC = () => {
     const total = useSelector((state: RootState) => state.selection.total);
@@ -12,8 +13,8 @@ const PickedGrid: React.FC = () => {
     result.sort((a, b) => a - b);
     
     return (
-        <>
-            <Typography variant="button" component="h6">
+        <StyledWrapper active={result.length > 0}>
+            <Typography variant="body1" component="h6">
                 Your Play:
             </Typography>
 
@@ -29,10 +30,11 @@ const PickedGrid: React.FC = () => {
                     <NumberSlot 
                         key={`empty-${index}`}
                         empty
+                        disabled
                     >{item}</NumberSlot>
                 ))}
             </StyledContainer>
-        </>
+        </StyledWrapper>
     );
 };
 

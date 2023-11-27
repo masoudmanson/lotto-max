@@ -45,7 +45,7 @@ function App() {
         init={particlesInit} 
         options={{ 
           background: { 
-            color: "#0F52BA", 
+            color: "#23177b", 
           }, 
           fpsLimit: 60, 
           particles: { 

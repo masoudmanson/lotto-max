@@ -48,6 +48,7 @@ const correctState = () => {
         box-shadow: inset 0 0 0 8px rgba(25, 175, 40, 1);
         border-color: rgba(25, 175, 40, 1);
         cursor: default;
+        color: green;
 
         &:hover {
             border-color:  rgba(25, 175, 40, 1);

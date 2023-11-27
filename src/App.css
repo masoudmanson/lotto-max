@@ -14,41 +14,6 @@ body {
   padding: 30px 0;
 }
 
-h6 {
-  color: #555;
-}
-
-#header {
-  background-color: green;
-  border-radius: 10px 10px 0 0;
-  padding: 20px;
-  overflow: hidden;
-  position: relative;
-}
-
-#header::after {
-  font-family: "Inter";
-  content: "M";
-  opacity: 0.1;
-  position: absolute;
-  right: -30px;
-  top: -230px;
-  font-size: 350px;
-  font-weight: 700;
-  transform: rotate(-25deg);
-}
-
-#header h4 {
-  color: white;
-  padding-bottom: 0;
-}
-
-@media screen and (max-width: 800px) {
-  h4 {
-    text-align: center;
-  }
-}
-
 @media screen and (max-width: 400px) {
   body {
     background-color: white;
@@ -56,9 +21,5 @@ h6 {
 
   #root {
     padding: 0;
-  }
-
-  #header {
-    border-radius: 0;
   }
 }

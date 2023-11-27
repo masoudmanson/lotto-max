@@ -10,9 +10,6 @@ export const StyledWrapper = styled("div")`
 
         return `
             opacity: ${active ? 1 : .4};
-            p {
-                color: #555;
-            }
         `;
     }}
 `;

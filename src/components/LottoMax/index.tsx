@@ -1,48 +1,101 @@
-import { Typography } from "@mui/material";
+import { Chip, Typography } from "@mui/material";
 import NumbersGrid from "../NumbersGrid";
 import PickedGrid from "../PickedGrid";
 import Draw from "../Draw";
 import Result from "../Result";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { LottoMimWrapper } from "./style";
+import { HeaderButtonWrapper, LottoMaxHeader, LottoMaxWrapper, StyledSubtitle, StyledButton } from "./style";
+import { autoPick, draw, reset } from "../../store/selectionSlice";
 
 const LottoMax = () => {
+    const dispatch = useDispatch();
+
     const winning = useSelector((state: RootState) => state.selection.winning);
     const selected = useSelector((state: RootState) => state.selection.selected);
     const total = useSelector((state: RootState) => state.selection.total);
 
     return (
         <>
-            <div id="header">
-                <Typography
-                    component="h4"
-                    variant="h4"
-                    sx={{
-                        paddingBottom: 4,
-                        color: "SteelBlue",
-                        fontWeight: 600
-                    }}
-                >
-                    Lotto Mim
-                </Typography>
-            </div>
-
-            <LottoMimWrapper>
+            <LottoMaxHeader>
                 <div>
-                    <Typography variant="button" component="h6">
-                        Pick {total} numbers: (<strong>{selected.length}</strong> / {total})
+                    <Typography
+                        component="h4"
+                        variant="h4"
+                        sx={{
+                            paddingBottom: 4,
+                            color: "SteelBlue",
+                            fontWeight: 600
+                        }}
+                    >
+                        Lotto Max
+                    </Typography>
+                    <StyledSubtitle>Pick 7 numbers</StyledSubtitle>
+                </div>
+                <HeaderButtonWrapper>
+                    {!selected.length ? (
+                        <StyledButton
+                            variant="contained"
+                            disableElevation
+                            disableRipple
+                            onClick={handleAutoPick}
+                        >
+                            Auto Pick <Chip label="A" size="small" variant="filled" />
+                        </StyledButton>
+                    ) : null}
+
+                    {selected.length && !winning.length ? (
+                        <StyledButton
+                            disableElevation
+                            disableRipple
+                            onClick={handleDraw}
+                            variant="contained"
+                            disabled={selected.length < total}
+                        >
+                            Draw  <Chip disabled={selected.length < total} label="D" size="small" color={selected.length < total ? "default" : "default"} variant={selected.length < total ? "outlined" : "filled"} />
+                        </StyledButton>
+                    ) : null}
+
+                    {winning.length ? (
+                        <StyledButton
+                            disableElevation
+                            disableRipple
+                            onClick={handleReset}
+                            variant="contained"
+                        >
+                            Start again <Chip label="S" size="small" />
+                        </StyledButton>
+                    ) : null}
+                </HeaderButtonWrapper>
+            </LottoMaxHeader>
+
+            <LottoMaxWrapper>
+                <div>
+                    <Typography variant="body1" component="h6">
+                        <strong>{selected.length}</strong> of {total} Selected!
                     </Typography>
                     <NumbersGrid count={50} />
                 </div>
                 <div>
                     <PickedGrid />
                     <Draw />
-                    {winning.length ? <Result /> : null}
+                    <Result />
                 </div>
-            </LottoMimWrapper>
+            </LottoMaxWrapper>
         </>
     );
+
+    function handleDraw() {
+        dispatch(draw());
+    }
+
+    function handleAutoPick() {
+        dispatch(autoPick());
+    }
+
+    function handleReset() {
+        dispatch(reset());
+    }
 };
 
 export default LottoMax;

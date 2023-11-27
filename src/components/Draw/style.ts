@@ -1,5 +1,22 @@
 import { Button, styled, chipClasses } from "@mui/material";
 
+interface StyledProps {
+    active?: boolean;
+}
+
+export const StyledWrapper = styled("div")`
+    ${(props: StyledProps) => {
+        const { active } = props;
+
+        return `
+            opacity: ${active ? 1 : .4};
+            p {
+                color: #555;
+            }
+        `;
+    }}
+`;
+
 export const StyledContainer = styled("div")`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -9,18 +26,6 @@ export const StyledContainer = styled("div")`
 
     @media screen and (max-width: 800px) {
         padding: 15px 0 45px;
-    }
-`;
-
-export const StyledWrapper = styled("div")`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35vh;
-
-    @media screen and (max-width: 800px) {
-        height: 5vh;
-        margin: 0 auto 30px;
     }
 `;
 
