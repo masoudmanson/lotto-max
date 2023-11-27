@@ -64,7 +64,7 @@ const LottoMax = () => {
                             onClick={handleReset}
                             variant="contained"
                         >
-                            Start again <Chip label="S" size="small" />
+                            Start over <Chip label="S" size="small" />
                         </StyledButton>
                     ) : null}
                 </HeaderButtonWrapper>
