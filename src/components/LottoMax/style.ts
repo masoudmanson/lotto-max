@@ -38,6 +38,10 @@ export const LottoMaxHeader = styled("div")`
         transform: rotate(-15deg);
     }
 
+    & > div {
+        z-index: 1;
+    }
+
     & h4 {
         color: white;
         padding-bottom: 0;
