@@ -23,11 +23,11 @@ export const StyledContainer = styled("div", {
             border-right: solid 1px #eee;
 
             @media screen and (max-width: 800px) {
-                grid-template-columns: repeat(7, 1fr);
-                grid-template-rows: repeat(8, 1fr);
+                grid-template-columns: repeat(${GRID_SIZE}, 1fr);
+                grid-template-rows: repeat(${GRID_SIZE}, 1fr);
                 padding-right: 0;
-                padding-bottom: 30px;
-                margin: 0 auto 30px;
+                padding-bottom: 20px;
+                margin: 0 auto 20px;
                 border-right: none;   
                 border-bottom: solid 1px #eee;
             }

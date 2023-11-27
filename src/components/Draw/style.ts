@@ -36,7 +36,7 @@ export const StyledContainer = styled("div", {
             padding: 10px 0 38px;
         
             @media screen and (max-width: 800px) {
-                padding: 15px 0 45px;
+                padding: 10px 0 25px;
             }
         `;
     }}
