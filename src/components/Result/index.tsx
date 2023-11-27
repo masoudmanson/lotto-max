@@ -26,10 +26,18 @@ const Result: React.FC = () => {
     const selectedSorted = [...selected];
     selectedSorted.sort((a, b) => a - b);
 
+    const OddsPhrase = () => {
+        return (
+            <Typography variant="body2" component="p">
+                Odds of guessing <strong>{correct}</strong> of {total} ≈ <Chip size="small" variant="outlined" label={`1 : ${odds.toFixed(0)}`} /> or <Chip size="small" label={`${oddsPercentage.toFixed(6)}%`} />
+            </Typography>
+        );
+    };
+
     return (
         <>
-            <Typography variant="h6" component="h6">
-                Result: <strong>{correct}</strong> / {total}
+            <Typography variant="button" component="h6">
+                Result: <strong>{correct}</strong> of {total}
             </Typography>
 
             <StyledContainer>
@@ -54,9 +62,7 @@ const Result: React.FC = () => {
                 </StyledButton>
             </StyledWrapper>
 
-            <Typography variant="body2" component="p">
-                Odds of guessing <strong>{correct}</strong> / {total} ≈ <Chip size="small" variant="outlined" label={`1 : ${odds.toFixed(0)}`} /> or <Chip size="small" label={`${oddsPercentage.toFixed(6)}%`} />
-            </Typography>
+            {correct > 0 ? <OddsPhrase/> : null}
         </>
     );
 

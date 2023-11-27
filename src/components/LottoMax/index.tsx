@@ -5,10 +5,13 @@ import Draw from "../Draw";
 import Result from "../Result";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { LottoMimWrapper } from "./style";
 
 const LottoMax = () => {
     const winning = useSelector((state: RootState) => state.selection.winning);
-    
+    const selected = useSelector((state: RootState) => state.selection.selected);
+    const total = useSelector((state: RootState) => state.selection.total);
+
     return (
         <>
             <div id="header">
@@ -25,14 +28,19 @@ const LottoMax = () => {
                 </Typography>
             </div>
 
-            <div id="lotto-max-wrapper">
-                <NumbersGrid count={50} />
+            <LottoMimWrapper>
+                <div>
+                    <Typography variant="button" component="h6">
+                        Pick {total} numbers: (<strong>{selected.length}</strong> / {total})
+                    </Typography>
+                    <NumbersGrid count={50} />
+                </div>
                 <div>
                     <PickedGrid />
                     <Draw />
                     {winning.length ? <Result /> : null}
                 </div>
-            </div>
+            </LottoMimWrapper>
         </>
     );
 };

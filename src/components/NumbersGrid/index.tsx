@@ -16,12 +16,12 @@ const NumbersGrid: React.FC<NumbersGridProps> = (props: NumbersGridProps) => {
     const winning = useSelector((state: RootState) => state.selection.winning);
     const dispatch = useDispatch();
 
-    const StartingArray = [...Array(count).keys()].map(num => num+1);
+    const StartingArray = [...Array(count).keys()].map(num => num + 1);
     const isDone = selected.length === total;
 
     const handleClick = (number: number) => {
-        if(winning.length) return;
-        if(selected.length < total && !selected.includes(number)) {
+        if (winning.length) return;
+        if (selected.length < total && !selected.includes(number)) {
             dispatch(select(number));
         } else if (selected.includes(number)) {
             dispatch(deselect(number));
@@ -31,8 +31,8 @@ const NumbersGrid: React.FC<NumbersGridProps> = (props: NumbersGridProps) => {
     return (
         <StyledContainer>
             {StartingArray.map((item: number) => (
-                <NumberSlot 
-                    key={item} 
+                <NumberSlot
+                    key={item}
                     onClick={() => handleClick(item)}
                     active={selected.includes(item)}
                     done={isDone}

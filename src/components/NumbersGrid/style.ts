@@ -7,6 +7,7 @@ export const StyledContainer = styled("div")`
     grid-column-gap: 8px;
     grid-row-gap: 8px;
     padding-right: 30px;
+    padding-top: 10px;
     margin-right: 30px;
     border-right: solid 1px #eee;
 

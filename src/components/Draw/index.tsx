@@ -16,7 +16,7 @@ const Draw: React.FC = () => {
 
     return winning.length ? (
         <>
-            <Typography variant="h6" component="h6">
+            <Typography variant="button" component="h6">
                 Winning Numbers:
             </Typography>
 
@@ -32,25 +32,26 @@ const Draw: React.FC = () => {
         </>
     ) : (
         <StyledWrapper>
-            {!selected.length ? <StyledButton
+            <StyledButton
                 color="info"
                 disableElevation
                 disableRipple
                 onClick={handleAutoPick}
                 variant="outlined"
+                disabled={selected.length > 0}
             >
-                Auto Pick <Chip label="A" size="small" />
-            </StyledButton> : null}
+                Auto Pick <Chip label="A" size="small" disabled={selected.length > 0}  variant={selected.length > 0 ? "outlined" : "filled"}  />
+            </StyledButton>
 
             <StyledButton
-                color="info"
+                color="success"
                 disableElevation
                 disableRipple
                 onClick={handleDraw}
-                variant="contained"
+                variant="outlined"
                 disabled={selected.length < total}
             >
-                Draw  <Chip disabled={selected.length < total} label="D" size="small" color={selected.length < total ? "default" : "primary"} variant={selected.length < total ? "outlined" : "filled"} />
+                Continue  <Chip disabled={selected.length < total} label="D" size="small" color={selected.length < total ? "default" : "default"} variant={selected.length < total ? "outlined" : "filled"} />
             </StyledButton>
         </StyledWrapper>
     );

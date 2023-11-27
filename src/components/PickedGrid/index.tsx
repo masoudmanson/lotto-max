@@ -13,7 +13,7 @@ const PickedGrid: React.FC = () => {
     
     return (
         <>
-            <Typography variant="h6" component="h6">
+            <Typography variant="button" component="h6">
                 Your Play:
             </Typography>
 

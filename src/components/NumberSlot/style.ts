@@ -89,21 +89,21 @@ export const StyledButton = styled(Button, {
             &::before {
                 content: "";
                 width: 2px;
-                height: 8px;
+                height: 12px;
                 background-color: white;
                 position: absolute;
                 left: 0;
-                border-radius: 0px 10px 10px 0px;
+                border-radius: 0px 12px 12px 0px;
             }
         
             &::after {
                 content: "";
                 width: 2px;
-                height: 8px;
+                height: 12px;
                 background-color: white;
                 position: absolute;
                 right: 0;
-                border-radius: 10px 0px 0px 10px;
+                border-radius: 12px 0px 0px 12px;
             }
 
             ${active && activeState()};
