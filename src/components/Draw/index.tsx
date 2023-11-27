@@ -17,7 +17,7 @@ const Draw: React.FC = () => {
                 Winning Numbers:
             </Typography>
 
-            <StyledContainer>
+            <StyledContainer size={total}>
                 {winning.length ? result.map((item: number) => (
                     <NumberSlot
                         key={item}

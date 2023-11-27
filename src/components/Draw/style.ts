@@ -1,10 +1,15 @@
 import { Button, styled, chipClasses } from "@mui/material";
 
+const doNotForwardProps = ["active"];
+
 interface StyledProps {
     active?: boolean;
+    size?: number;
 }
 
-export const StyledWrapper = styled("div")`
+export const StyledWrapper = styled("div", {
+    shouldForwardProp: (prop: string) => !doNotForwardProps.includes(prop)
+})`
     ${(props: StyledProps) => {
         const { active } = props;
 
@@ -17,16 +22,24 @@ export const StyledWrapper = styled("div")`
     }}
 `;
 
-export const StyledContainer = styled("div")`
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 8px;
-    padding: 10px 0 50px;
+export const StyledContainer = styled("div", {
+    shouldForwardProp: (prop: string) => !doNotForwardProps.includes(prop)
+})`
+    ${(props: StyledProps) => {
+        const { size } = props;
 
-    @media screen and (max-width: 800px) {
-        padding: 15px 0 45px;
-    }
+        return `
+            display: grid;
+            grid-template-columns: repeat(${size}, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            grid-column-gap: 8px;
+            padding: 10px 0 38px;
+        
+            @media screen and (max-width: 800px) {
+                padding: 15px 0 45px;
+            }
+        `;
+    }}
 `;
 
 export const StyledButton = styled(Button)`

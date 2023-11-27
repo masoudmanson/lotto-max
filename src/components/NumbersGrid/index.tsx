@@ -4,7 +4,7 @@ import { StyledContainer } from "./style";
 import { RootState } from "../../store/store";
 import { deselect, select } from "../../store/selectionSlice";
 
-interface NumbersGridProps {
+export interface NumbersGridProps {
     count: number;
 }
 
@@ -29,7 +29,7 @@ const NumbersGrid: React.FC<NumbersGridProps> = (props: NumbersGridProps) => {
     };
 
     return (
-        <StyledContainer>
+        <StyledContainer count={count}>
             {StartingArray.map((item: number) => (
                 <NumberSlot
                     key={item}

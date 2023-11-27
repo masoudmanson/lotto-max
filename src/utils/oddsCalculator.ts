@@ -10,10 +10,7 @@ const factorial = (n: number): number => {
 // Function to calculate combinations (nCr)
 const combinations = (n: number, r: number) => factorial(n) / (factorial(r) * factorial(n - r));
 
-export function calculateOdds(guessesCorrect: number) {
-    const totalNumbers = 50;
-    const numbersToPick = 7;
-
+export function calculateOdds(totalNumbers: number, numbersToPick: number, guessesCorrect: number) {
     const successfulCombinations = combinations(numbersToPick, guessesCorrect) * combinations(totalNumbers - numbersToPick, numbersToPick - guessesCorrect);
     const totalCombinations = combinations(totalNumbers, numbersToPick);
 

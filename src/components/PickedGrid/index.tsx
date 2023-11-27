@@ -18,7 +18,7 @@ const PickedGrid: React.FC = () => {
                 Your Play:
             </Typography>
 
-            <StyledContainer>
+            <StyledContainer size={total}>
                 {result.map((item: number) => (
                     <NumberSlot 
                         key={item}

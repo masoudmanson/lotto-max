@@ -2,14 +2,16 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface SelectionState {
+  potSize: number;
   selected: number[];
   total: number;
   winning: number[];
 }
 
 const initialState: SelectionState = {
+  potSize: 49,
   selected: [],
-  total: 7,
+  total: 6,
   winning: []
 };
 
@@ -31,7 +33,7 @@ export const selectionSlice = createSlice({
       if (state.selected.length !== state.total || state.winning.length) return;
 
       while(state.winning.length < state.total) {
-        const randomNumber = Math.floor(Math.random() * 50) + 1;
+        const randomNumber = Math.floor(Math.random() * state.potSize) + 1;
 
         if(!state.winning.includes(randomNumber)) {
           state.winning.push(randomNumber);
@@ -42,8 +44,7 @@ export const selectionSlice = createSlice({
       if(state.selected.length || state.winning.length) return;
 
       while(state.selected.length < state.total) {
-        const randomNumber = Math.floor(Math.random() * 50) + 1;
-        
+        const randomNumber = Math.floor(Math.random() * state.potSize) + 1;
 
         if(!state.selected.includes(randomNumber)) {
           state.selected.push(randomNumber);
@@ -59,7 +60,6 @@ export const selectionSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { autoPick, select, deselect, draw, reset } = selectionSlice.actions;
 
 export default selectionSlice.reducer;

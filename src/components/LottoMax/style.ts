@@ -2,7 +2,7 @@ import { Button, chipClasses, styled } from "@mui/material";
 
 export const LottoMaxWrapper = styled("div")`
     display: flex;
-    padding: 15px 30px 30px;
+    padding: 20px 40px 40px;
     background-color: white;
     border-radius: 0 0 10px 10px;
     position: relative;
@@ -28,14 +28,14 @@ export const LottoMaxHeader = styled("div")`
 
     &::after {
         font-family: "Inter";
-        content: "M";
+        content: "649";
         opacity: 0.1;
         position: absolute;
         right: -30px;
-        top: -210px;
-        font-size: 350px;
+        top: -170px;
+        font-size: 300px;
         font-weight: 700;
-        transform: rotate(-25deg);
+        transform: rotate(-15deg);
     }
 
     & h4 {

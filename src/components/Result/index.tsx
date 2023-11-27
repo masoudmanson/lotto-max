@@ -10,6 +10,7 @@ const Result: React.FC = () => {
     let correct = 0;
 
     const total = useSelector((state: RootState) => state.selection.total);
+    const potSize = useSelector((state: RootState) => state.selection.potSize);
     const selected = useSelector((state: RootState) => state.selection.selected);
     const winning = useSelector((state: RootState) => state.selection.winning);
 
@@ -17,7 +18,7 @@ const Result: React.FC = () => {
         if (winning.includes(selected[i])) correct++;
     }
 
-    const odds = calculateOdds(correct);
+    const odds = calculateOdds(potSize, total, correct);
     const oddsPercentage = (100 / odds);
 
     const selectedSorted = [...selected];
@@ -27,11 +28,11 @@ const Result: React.FC = () => {
         if (winning.length) {
             return correct ? (
                 <Typography variant="body2" component="p">
-                    Odds of guessing <strong>{correct}</strong> of {total} ≈ <Chip size="small" variant="outlined" label={`1 in ${odds.toFixed(0)}`} /> or <Chip size="small" label={`${oddsPercentage.toFixed(6)}%`} />
+                    Odds for <strong>{correct}</strong> of {total} ≈ <Chip size="small" variant="outlined" label={`1 in ${odds.toFixed(0)}`} /> or <Chip size="small" label={`${oddsPercentage.toFixed(6)}%`} />
                 </Typography>
             ) : (
                 <Typography variant="body2" component="p">
-                    You guessed <strong>0</strong> of {total} numbers. Better luck next time!
+                    Better luck next time!
                 </Typography>
             );
         } else {
@@ -49,7 +50,7 @@ const Result: React.FC = () => {
                 Result: <strong>{correct}</strong> of {total}
             </Typography>
 
-            <StyledContainer>
+            <StyledContainer size={total}>
                 {winning.length ? selectedSorted.map((item: number) => (
                     <NumberSlot
                         key={item}

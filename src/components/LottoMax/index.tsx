@@ -14,6 +14,7 @@ const LottoMax = () => {
     const winning = useSelector((state: RootState) => state.selection.winning);
     const selected = useSelector((state: RootState) => state.selection.selected);
     const total = useSelector((state: RootState) => state.selection.total);
+    const potSize = useSelector((state: RootState) => state.selection.potSize);
 
     return (
         <>
@@ -28,9 +29,9 @@ const LottoMax = () => {
                             fontWeight: 600
                         }}
                     >
-                        Lotto Max
+                        Lotto 649
                     </Typography>
-                    <StyledSubtitle>Pick 7 numbers</StyledSubtitle>
+                    <StyledSubtitle>Pick {total} numbers</StyledSubtitle>
                 </div>
                 <HeaderButtonWrapper>
                     {!selected.length ? (
@@ -74,7 +75,7 @@ const LottoMax = () => {
                     <Typography variant="body1" component="h6">
                         <strong>{selected.length}</strong> of {total} Selected!
                     </Typography>
-                    <NumbersGrid count={50} />
+                    <NumbersGrid count={potSize} />
                 </div>
                 <div>
                     <PickedGrid />
