@@ -3,8 +3,9 @@
 This repository contains a straightforward implementation of a lottery application with React/Redux. It's a basic program designed to simulate a lottery drawing, allowing users to enter and randomly select winners.
 
 <br/>
-<img width="840" alt="Screenshot 2023-11-27 at 12 33 01 AM" src="https://github.com/masoudmanson/lotto-max/assets/927990/5bb92914-5026-4c28-b84d-9b11f713cb25">
-<br/>
+<p align="center">
+  <img width="800" alt="Lotto 649" src="https://github.com/masoudmanson/lotto-max/assets/927990/cff08b78-fd84-42c7-a0c2-a4ab9b773570">
+</p>
 
 ## Features:
 - **User Participation:** Users can enter the lottery by selecting their numbers.
